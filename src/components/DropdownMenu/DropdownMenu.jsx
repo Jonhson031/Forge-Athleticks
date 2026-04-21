@@ -5,7 +5,5 @@ import { useEffect } from 'react';
 import styles from './DropdownMenu.module.css';
 
 export default function DropdownMenu() {
-
-    
   return <h1>DropdownMenu</h1>;
 }
