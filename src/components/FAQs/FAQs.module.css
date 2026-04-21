@@ -1,5 +1,5 @@
 .section {
-    --bg: #141414;
+    --bg: var(--bg-page);
     --bg-item: #1a1a1a;
     --bg-item-open: #1e1e1e;
     --bg-tab-active: #ffffff;

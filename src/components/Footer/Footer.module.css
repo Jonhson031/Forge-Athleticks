@@ -1,8 +1,6 @@
 .footer {
-    --bg: #141414;
+    --bg: var(--bg-page);
     --bg-copyright: #000000;
-    --border: #2a2a2a;
-    --text-muted: #777777;
     --text-link: #aaaaaa;
     --text-link-hover: #ffffff;
 

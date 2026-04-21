@@ -1,16 +1,5 @@
 .page {
-    --bg: #141414;
-    --bg-card: #1a1a1a;
-    --bg-input: #1e1e1e;
-    --bg-input-focus: #242424;
-    --border: #2e2e2e;
-    --border-focus: #ffffff;
-    --text-primary: #ffffff;
-    --text-muted: #ffffff90;
-    --text-placeholder: #444444;
-    --btn-bg: #ffffff;
-    --btn-text: #000000;
-    --btn-hover: #e0e0e0;
+    --bg: var(--bg-page);
 
     background-color: var(--bg);
     color: var(--text-primary);
@@ -18,7 +7,7 @@
     min-height: 100vh;
     padding-top: 7rem;
     padding-bottom: 6rem;
-    border-bottom: 1px solid #777;
+    border-bottom: var(--border-b-page);
 }
 
 .hero {
@@ -235,7 +224,7 @@
 }
 
 .submitBtn:hover {
-    background-color: var(--btn-hover);
+    background-color: var(--btn-hover-bg);
 }
 
 .submitBtn:active {

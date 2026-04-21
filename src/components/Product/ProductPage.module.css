@@ -1,14 +1,11 @@
 .page {
-    --bg: #141414;
+    --bg: var(--bg-page);
     --bg-gallery: #1a1a1a;
     --bg-thumb: #1e1e1e;
     --bg-thumb-hover: #252525;
     --bg-input: #1e1e1e;
     --bg-size-hover: #252525;
     --bg-size-active: #ffffff;
-    --btn-bg: #ffffff;
-    --btn-text: #000000;
-    --btn-hover: #e0e0e0;
     --btn-disabled: #2a2a2a;
     --btn-dis-text: #555555;
 
@@ -314,7 +311,7 @@
 }
 
 .addBtn:hover:not(.addBtnDisabled) {
-    background-color: var(--btn-hover);
+    background-color: var(--btn-hover-bg);
 }
 
 .addBtnDisabled {
