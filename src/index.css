@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+@import url('./assets/font-icons/style.css');
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  --bg: #000000;
+  --bg-card: #1a1a1a;
+  --bg-page: #141414;
+  --bg-white: #fff;
+  --card-bg: #111111;
+  --card-hover: #181818;
+  --border: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-body: #aaaaaa;
+  --text-muted: #999;
+  --border: #2a2a2a;
+  --border-active: #ffffff;
+  --badge-bg: #ffffff;
+  --badge-text: #000000;
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+  --btn-hover-bg: #e0e0e0;
+  --font-display: "Barlow Condensed", "Impact", sans-serif;
+  --font: "DM Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font);
+  color: #fff;
+  background-color: #0F0F0F;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  overflow-y: auto;
+}
+
+[class*=container] {
+  padding: 1rem;
+  max-width: 83.5rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+#root main {
+  flex-grow: 1;
+}

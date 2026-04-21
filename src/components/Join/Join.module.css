@@ -1,0 +1,35 @@
+.join {
+    background-color: var(--bg);
+    padding-top: 5rem;
+    padding-bottom: 2.9rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    color: #FFF;
+    font-family: var(--font);
+    font-size: 3.5rem;
+    font-style: normal;
+    text-align: center;
+    font-weight: 900;
+    line-height: normal;
+    margin-top: 0.88rem;
+    margin-bottom: 1.6rem;
+    font-size: clamp(2.3125rem, 1.1442rem + 5.8416vw, 6rem);
+}
+
+.join h3 {
+    color: #999;
+    font-family: var(--font);
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.1875rem;
+}

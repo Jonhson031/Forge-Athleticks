@@ -1,0 +1,226 @@
+.footer {
+    --bg: #141414;
+    --bg-copyright: #000000;
+    --border: #2a2a2a;
+    --text-muted: #777777;
+    --text-link: #aaaaaa;
+    --text-link-hover: #ffffff;
+
+    background-color: var(--bg);
+    font-family: var(--font-body);
+}
+
+.mainRow {
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 0.4fr;
+    gap: 2.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.brandTitle {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+}
+
+.brandSub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.navCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.colTitle {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+
+}
+
+.linkList {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.link {
+    color: var(--text-link);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.link:hover {
+    color: var(--text-link-hover);
+}
+
+.infoCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.socialList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-link);
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.socialLink:hover {
+    color: var(--text-link-hover);
+}
+
+
+.socialLink:hover .socialDot {
+    background-color: var(--text-primary);
+}
+
+.contactBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 6px;
+}
+
+.contactItem {
+    color: var(--text-muted);
+    font-size: 0.825rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.copyrightRow {
+    background-color: var(--bg-copyright);
+    padding: 0.875rem 2.5rem;
+}
+
+.copyrightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    max-width: 83.5rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.copyrightText {
+    color: var(--text-muted);
+    font-size: 0.825rem;
+    margin: 0;
+}
+
+.copyrightLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.copyrightLink {
+    color: var(--text-muted);
+    font-size: 0.825rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.copyrightLink:hover {
+    color: #fff;
+}
+
+@media (max-width: 850px) {
+    .mainRow {
+        grid-template-columns: 1fr 0.5fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .navigation {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: 2;
+        grid-column: 1 / span 2
+    }
+
+    .infoCol {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainRow {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        padding: 3rem 1.25px;
+        gap: 2rem 1rem;
+    }
+
+    .brand {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+    }
+
+    .navigation {
+        margin-top: 1rem;
+        grid-row: 2 / span 2;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1 / span 2;
+        gap: 2rem;
+    }
+
+    .navigation div:nth-child(3) {
+        grid-column: 1 / span 2;
+    }
+
+    .infoCol {
+        display: grid;
+        grid-row: 3;
+        grid-column: 2;
+        justify-content: flex-start;
+        align-content: flex-end;
+    }
+}

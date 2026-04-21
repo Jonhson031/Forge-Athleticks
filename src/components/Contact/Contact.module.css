@@ -1,0 +1,271 @@
+.page {
+    --bg: #141414;
+    --bg-card: #1a1a1a;
+    --bg-input: #1e1e1e;
+    --bg-input-focus: #242424;
+    --border: #2e2e2e;
+    --border-focus: #ffffff;
+    --text-primary: #ffffff;
+    --text-muted: #ffffff90;
+    --text-placeholder: #444444;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-hover: #e0e0e0;
+
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font);
+    min-height: 100vh;
+    padding-top: 7rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid #777;
+}
+
+.hero {
+    max-width: 80rem;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.01rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+    color: var(--text-primary);
+}
+
+.subheading {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.cardsRow {
+    max-width: 80rem;
+    margin: 0 auto;
+    margin-bottom: 4.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+.card {
+    background-color: var(--bg-card);
+    border: 0.0625rem solid var(--border);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: #555;
+}
+
+.cardIcon {
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.cardLabel {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.cardValue {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.formSection {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.formWrapper {
+    background-color: var(--bg-card);
+    border: 0.0625rem solid var(--border);
+    padding: 3rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    color: var(--text-muted);
+    font-size: 0.825rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.input,
+.textarea {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border: 0.0625rem solid var(--border);
+    padding: 0.875rem 1rem;
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    border-radius: 0;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--text-placeholder);
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: var(--border-focus);
+    background-color: var(--bg-input-focus);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 9rem;
+    line-height: 1.6;
+}
+
+.selectWrapper {
+    position: relative;
+}
+
+.select {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border: 0.0625rem solid var(--border);
+    padding: 0.875rem 2.5rem 0.875rem 1rem;
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 400;
+    outline: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.select:focus {
+    border-color: var(--border-focus);
+    background-color: var(--bg-input-focus);
+}
+
+.select option {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.selectArrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.submitRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-top: 0.0625rem solid var(--border);
+    padding-top: 2rem;
+}
+
+.notice {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: var(--font);
+    font-size: 0.825rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.submitBtn:hover {
+    background-color: var(--btn-hover);
+}
+
+.submitBtn:active {
+    background-color: #c8c8c8;
+}
+
+@media (max-width: 48rem) {
+    .cardsRow {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .formWrapper {
+        padding: 2rem 1.25rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 36rem) {
+    .submitRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .submitBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}
