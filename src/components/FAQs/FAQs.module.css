@@ -1,0 +1,244 @@
+.section {
+    --bg: #141414;
+    --bg-item: #1a1a1a;
+    --bg-item-open: #1e1e1e;
+    --bg-tab-active: #ffffff;
+    --border-open: #ffffff;
+    --tab-text: #777777;
+    --tab-active: #000000;
+
+    background-color: var(--bg);
+    font-family: var(--font-body);
+    padding: 6rem 2.5rem;
+    box-sizing: border-box;
+    border-bottom: var(--border-b-page);
+}
+
+.container {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.01rem;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.subheading {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.contactLink {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: opacity 0.18s ease;
+}
+
+.contactLink:hover {
+    opacity: 0.6;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    border: 0.0625rem solid var(--border);
+    width: fit-content;
+}
+
+.tab {
+    background: none;
+    border: none;
+    border-right: 0.0625rem solid var(--border);
+    color: var(--tab-text);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+}
+
+.tab:last-child {
+    border-right: none;
+}
+
+.tab:hover:not(.tabActive) {
+    background-color: #222;
+    color: var(--text-primary);
+}
+
+.tabActive {
+    background-color: var(--bg-tab-active);
+    color: var(--tab-active);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 0.0625rem solid var(--border);
+}
+
+.item {
+    border-bottom: 0.0625rem solid var(--border);
+    background-color: var(--bg-item);
+    transition: background-color 0.2s ease;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.itemOpen {
+    background-color: var(--bg-item-open);
+    border-left: 0.1875rem solid var(--text-primary);
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.375rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.question {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.icon {
+    color: var(--text-muted);
+    font-size: 1.375rem;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 1.25rem;
+    text-align: center;
+    transition: color 0.18s ease;
+}
+
+.itemOpen .icon {
+    color: var(--text-primary);
+}
+
+.answer {
+    padding: 0 1.5rem 1.375rem;
+}
+
+.answerText {
+    color: var(--text-body);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 44rem;
+}
+
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: 0.0625rem solid var(--border);
+    background-color: var(--bg-item);
+}
+
+.ctaText {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    font-size: 0.6875rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.ctaBtn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+@media (max-width: 40rem) {
+    .section {
+        padding: 4rem 1.25rem;
+    }
+
+    .tabs {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .tab {
+        border-right: none;
+        border-bottom: 0.0625rem solid var(--border);
+        text-align: left;
+    }
+
+    .tab:last-child {
+        border-bottom: none;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .trigger {
+        padding: 1.125rem 1rem;
+    }
+
+    .answer {
+        padding: 0 1rem 1.125rem;
+    }
+}

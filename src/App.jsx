@@ -6,6 +6,7 @@ import ErrorPage from './components/Error/Error.jsx';
 import AboutPage from './components/About/AboutPage.jsx';
 import ProductPage from './components/Product/ProductPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import FaqsPage from './components/FAQs/FaqsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: '/about', element: <AboutPage /> },
       { path: '/product/:id', element: <ProductPage /> },
       { path: '/cart', element: <CartPage /> },
+      { path: '/faq', element: <FaqsPage /> },
     ],
   },
 ]);

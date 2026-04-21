@@ -172,6 +172,7 @@ body {
   --btn-bg: #ffffff;
   --btn-text: #000000;
   --btn-hover-bg: #e0e0e0;
+  --border-b-page: 1px solid #777;
   --font-display: "Barlow Condensed", "Impact", sans-serif;
   --font: "DM Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
