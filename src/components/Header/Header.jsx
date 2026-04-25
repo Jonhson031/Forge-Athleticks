@@ -10,9 +10,18 @@ export default function Header() {
   const dispatch = useDispatch();
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
   const searchOpen = useSelector((state) => state.ui.searchOpen);
+  const activeMenu = useSelector((state) => state.ui.activeMenu);
 
   function toggleBurger() {
     dispatch(uiActions.toggleBurger());
+  }
+
+  function closeSearch() {
+    dispatch(uiActions.closeSearchMenu());
+  }
+
+  function closeActiveMenu() {
+    dispatch(uiActions.setActiveMenu(null));
   }
 
   const [sticky, setSticky] = useState(false);
@@ -38,7 +47,8 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = burgerOpen || searchOpen ? 'hidden' : '';
+    document.body.style.overflow = burgerOpen ? 'hidden' : '';
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -52,7 +62,9 @@ export default function Header() {
         <MainNavigation />
         <MobileDrawer />
 
-        {burgerOpen && <div className={styles.mobileBackdrop} onClick={toggleBurger} />}
+        {burgerOpen && <div className={styles.mobileBackdrop} onClick={toggleBurger}></div>}
+        {/* {searchOpen && overlay(() => closeSearch)}
+        {activeMenu && overlay(() => closeActiveMenu)} */}
       </header>
     </>
   );

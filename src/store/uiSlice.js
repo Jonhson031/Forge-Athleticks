@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { act } from 'react';
 
 const initialState = {
     burgerOpen: false,
@@ -39,13 +40,14 @@ export const uiSlice = createSlice({
             state.mobileExpanded = state.mobileExpanded === action.payload ? null : action.payload;
         },
         setActiveMenu(state, action) {
+            state.searchOpen = false;
             state.activeMenu = action.payload;
         },
 
         // Faqs
         setFaqActiveCategory(state, action) {
             state.faqActiveCategory = action.payload;
-            state.faqOpenId = null; // Reset openId when category changes
+            state.faqOpenId = null;
         },
         setFaqOpenId(state, action) {
             state.faqOpenId = state.faqOpenId === action.payload ? null : action.payload;

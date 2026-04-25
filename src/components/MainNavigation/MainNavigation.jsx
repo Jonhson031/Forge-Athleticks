@@ -193,7 +193,7 @@ export default function MainNavigation() {
   return (
     <nav className={styles.nav} onMouseLeave={() => handleActiveMenu(null)}>
       <div className={styles.topBar}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onMouseEnter={() => handleActiveMenu(null)}>
           <NavLink to="/" end>
             FORGE ATHLETICKS
           </NavLink>
@@ -213,7 +213,7 @@ export default function MainNavigation() {
           ))}
         </ul>
 
-        <div className={styles.utilities}>
+        <div className={styles.utilities} onMouseEnter={() => handleActiveMenu(null)}>
           <SearchButton />
           <div className={styles.userBtn}>
             <NavLink

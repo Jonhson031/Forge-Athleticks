@@ -15,6 +15,8 @@ export default function MobileDrawer() {
     dispatch(uiActions.setMobileExpanded(id));
   }
 
+  if (!burgerOpen) return;
+
   return (
     <div className={`${styles.drawer} ${burgerOpen ? styles.drawerOpen : ''}`}>
       <div className={styles.drawerSearch}>
