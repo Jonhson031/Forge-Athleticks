@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './FAQs.module.css';
 import Eyebrow from '../Eyebrow/Eyebrow';
+import FAQItem from './FAQitem';
+import { uiActions } from '../../store/uiSlice';
 
 const categories = [
   {
@@ -84,32 +86,9 @@ const categories = [
   },
 ];
 
-function FAQItem({ faq, isOpen, onToggle }) {
-  return (
-    <div className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}>
-      <button type="button" className={styles.trigger} onClick={onToggle} aria-expanded={isOpen}>
-        <span className={styles.question}>{faq.question}</span>
-        <span className={styles.icon} aria-hidden="true">
-          {isOpen ? '−' : '+'}
-        </span>
-      </button>
-
-      {isOpen && (
-        <div className={styles.answer}>
-          <p className={styles.answerText}>{faq.answer}</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function FaqsPage() {
-  const [activeCategory, setActiveCategory] = useState(categories[0].id);
-  const [openId, setOpenId] = useState(null);
-
-  function handleToggle(id) {
-    setOpenId((prev) => (prev === id ? null : id));
-  }
+  const dispatch = useDispatch();
+  const activeCategory = useSelector((state) => state.ui.faqActiveCategory);
 
   const currentFaqs = categories.find((c) => c.id === activeCategory)?.faqs ?? [];
 
@@ -134,28 +113,20 @@ export default function FaqsPage() {
 
         <div className={styles.body}>
           <div className={styles.tabs}>
-            {categories.map((cat) => (
+            {categories.map((category) => (
               <button
-                key={cat.id}
+                key={category.id}
                 type="button"
-                className={`${styles.tab} ${activeCategory === cat.id ? styles.tabActive : ''}`}
-                onClick={() => {
-                  setActiveCategory(cat.id);
-                  setOpenId(null);
-                }}
+                className={`${styles.tab} ${activeCategory === category.id ? styles.tabActive : ''}`}
+                onClick={() => dispatch(uiActions.setFaqActiveCategory(category.id))}
               >
-                {cat.label}
+                {category.label}
               </button>
             ))}
           </div>
           <div className={styles.list}>
             {currentFaqs.map((faq) => (
-              <FAQItem
-                key={faq.id}
-                faq={faq}
-                isOpen={openId === faq.id}
-                onToggle={() => handleToggle(faq.id)}
-              />
+              <FAQItem key={faq.id} faq={faq} />
             ))}
           </div>
         </div>

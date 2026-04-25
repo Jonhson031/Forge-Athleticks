@@ -1,46 +1,51 @@
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import searchIcon from '../../assets/icons/search.svg';
-import userIcon from '../../assets/icons/user-icon.svg';
-import cartIcon from '../../assets/icons/cart.svg';
 import MainNavigation from '../MainNavigation/MainNavigation';
+import MobileDrawer from '../MobileDrawer/MobileDrawer';
+import { uiActions } from '../../store/uiSlice';
 
 export default function Header() {
+  const dispatch = useDispatch();
+  const burgerOpen = useSelector((state) => state.ui.burgerOpen);
+
+  function toggleBurger() {
+    dispatch(uiActions.toggleBurger());
+  }
+
+  const [sticky, setSticky] = useState(false);
+  const triggerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setSticky(!entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current);
+    }
+
+    return () => {
+      if (triggerRef.current) {
+        observer.unobserve(triggerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <NavLink to="/" end>
-            FORGE ATHLETICKS
-          </NavLink>
-        </div>
-        <nav className={styles.navigation}>
-          <MainNavigation />
-          <div className={styles.search}>
-            <form action="/search">
-              <button
-                className="icon-search1"
-                aria-label="Click here to search for products"
-              ></button>
-              <input type="text" placeholder="Search for products..." />
-            </form>
-          </div>
-          <div className={styles.user}>
-            <NavLink
-              className="icon-fi-rr-user"
-              to="/profile"
-              aria-label="Click here to access your user profile"
-            ></NavLink>
-          </div>
-          <div className={styles.cart}>
-            <NavLink
-              className="icon-cart"
-              to="/cart"
-              aria-label="Click here to access your cart"
-            ></NavLink>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <>
+      <div ref={triggerRef}></div>
+
+      <header className={`${styles.header} ${sticky ? styles.sticky : ''}`}>
+        <MainNavigation />
+        <MobileDrawer />
+
+        {burgerOpen && <div className={styles.mobileBackdrop} onClick={toggleBurger} />}
+      </header>
+    </>
   );
 }

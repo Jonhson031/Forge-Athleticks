@@ -1,16 +1,54 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = { isBurgerMenuOpen: false, isMegaMenuOppen: false }
+const initialState = {
+    burgerOpen: false,
+    searchOpen: false,
+    searchValue: '',
+    mobileExpanded: null,
+    activeMenu: null,
+
+    faqActiveCategory: 'orders',
+    faqOpenId: null,
+}
 
 export const uiSlice = createSlice({
     name: 'ui',
     initialState,
     reducers: {
-        burgerMenuOpen(state) {
-            state.isBurgerMenuOpen = !state.isBurgerMenuOpen
+        // Navigation: 
+        toggleBurger(state) {
+            state.burgerOpen = !state.burgerOpen;
+            state.searchOpen = false;
+            state.mobileExpanded = null;
+            state.searchValue = '';
+            state.activeMenu = null;
         },
-        MegaMenuOpen(state) {
-            state.isMegaMenuOppen = !state.isMegaMenuOppen
+        openSearchMenu(state) {
+            state.searchOpen = true;
+            state.burgerOpen = false;
+            state.activeMenu = null;
+        },
+        closeSearchMenu(state) {
+            state.searchOpen = false;
+            state.searchValue = '';
+        },
+        setSearchValue(state, action) {
+            state.searchValue = action.payload || null;
+        },
+        setMobileExpanded(state, action) {
+            state.mobileExpanded = state.mobileExpanded === action.payload ? null : action.payload;
+        },
+        setActiveMenu(state, action) {
+            state.activeMenu = action.payload;
+        },
+
+        // Faqs
+        setFaqActiveCategory(state, action) {
+            state.faqActiveCategory = action.payload;
+            state.faqOpenId = null; // Reset openId when category changes
+        },
+        setFaqOpenId(state, action) {
+            state.faqOpenId = state.faqOpenId === action.payload ? null : action.payload;
         },
     }
 })

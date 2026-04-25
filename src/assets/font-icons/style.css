@@ -60,9 +60,9 @@
   color: #555;
 }
 
-.icon-search1:before {
+.icon-search:before {
   content: "\e905";
-  color: #ffffff90;
+  color: #666;
 }
 
 .icon-facebook:before {

@@ -196,7 +196,7 @@ body {
 }
 
 [class*=container] {
-  padding: 1rem;
+  padding: 0 1rem;
   max-width: 83.5rem;
   box-sizing: border-box;
   margin: 0 auto;
