@@ -9,6 +9,7 @@ import { uiActions } from '../../store/uiSlice';
 export default function Header() {
   const dispatch = useDispatch();
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
+  const searchOpen = useSelector((state) => state.ui.searchOpen);
 
   function toggleBurger() {
     dispatch(uiActions.toggleBurger());
@@ -35,6 +36,13 @@ export default function Header() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = burgerOpen || searchOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [burgerOpen, searchOpen]);
 
   return (
     <>
