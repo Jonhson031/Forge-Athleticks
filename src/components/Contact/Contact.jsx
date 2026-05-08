@@ -1,5 +1,5 @@
-import Eyebrow from '../Eyebrow/Eyebrow';
-import styles from './Contact.module.css';
+import Eyebrow from "../Eyebrow/Eyebrow";
+import styles from "./Contact.module.css";
 
 const infoCards = [
   {
@@ -20,8 +20,8 @@ const infoCards = [
         />
       </svg>
     ),
-    label: 'Email Us',
-    value: 'support@forgeathleticks.com',
+    label: "Email Us",
+    value: "support@forgeathleticks.com",
   },
   {
     id: 2,
@@ -41,8 +41,8 @@ const infoCards = [
         />
       </svg>
     ),
-    label: 'Call Us',
-    value: '+1 (800) 555-FORGE',
+    label: "Call Us",
+    value: "+1 (800) 555-FORGE",
   },
   {
     id: 3,
@@ -67,28 +67,30 @@ const infoCards = [
         />
       </svg>
     ),
-    label: 'Find Us',
-    value: 'Chicago, IL, USA',
+    label: "Find Us",
+    value: "Chicago, IL, USA",
   },
 ];
 
 const subjectOptions = [
-  'General Inquiry',
-  'Order Issue',
-  'Returns & Exchanges',
-  'Press & Media',
-  'Partnerships',
-  'Other',
+  "General Inquiry",
+  "Order Issue",
+  "Returns & Exchanges",
+  "Press & Media",
+  "Partnerships",
+  "Other",
 ];
 
 export default function Contact() {
   return (
     <div className={styles.page}>
-      <div className={`${styles.container} ${'container'}`}>
+      <div className={`${styles.container} ${"container"}`}>
         <section className={styles.hero}>
           <Eyebrow text="Contact Us"></Eyebrow>
           <h1 className={styles.heading}>GET IN TOUCH.</h1>
-          <p className={styles.subheading}>We typically respond within&nbsp;24 hours.</p>
+          <p className={styles.subheading}>
+            We typically respond within&nbsp;24 hours.
+          </p>
         </section>
         <section className={styles.cardsRow}>
           {infoCards.map((card) => (
@@ -111,6 +113,7 @@ export default function Contact() {
                   type="text"
                   placeholder="John Smith"
                   className={styles.input}
+                  required
                 />
               </div>
               <div className={styles.fieldGroup}>
@@ -122,6 +125,7 @@ export default function Contact() {
                   type="email"
                   placeholder="john@example.com"
                   className={styles.input}
+                  required
                 />
               </div>
               <div className={`${styles.fieldGroup} ${styles.fullWidth}`}>
@@ -129,7 +133,11 @@ export default function Contact() {
                   Subject
                 </label>
                 <div className={styles.selectWrapper}>
-                  <select id="subject" className={styles.select} defaultValue="">
+                  <select
+                    id="subject"
+                    className={styles.select}
+                    defaultValue=""
+                  >
                     <option value="" disabled>
                       Select a topic...
                     </option>
@@ -151,11 +159,14 @@ export default function Contact() {
                   rows={6}
                   placeholder="Tell us what's on your mind..."
                   className={styles.textarea}
+                  required
                 />
               </div>
             </div>
             <div className={styles.submitRow}>
-              <p className={styles.notice}>We'll get back to you within 24 hours.</p>
+              <p className={styles.notice}>
+                We'll get back to you within 24 hours.
+              </p>
               <button type="button" className={styles.submitBtn}>
                 SEND MESSAGE
                 <svg
