@@ -56,7 +56,7 @@
 }
 
 .navBtnSale {
-    color: #ff4444;
+    color: var(--text-sale);
 }
 
 .navBtnSale:hover {

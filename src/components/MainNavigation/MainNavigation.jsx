@@ -1,146 +1,146 @@
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/uiSlice.js';
-import styles from './MainNavigation.module.css';
-import Search from '../Search/Search.jsx';
-import Dropdown from '../Dropdown/Dropdown.jsx';
-import SearchButton from '../Search/SearchButton.jsx';
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux/store/uiSlice.js";
+import styles from "./MainNavigation.module.css";
+import Search from "../Search/Search.jsx";
+import Dropdown from "../Dropdown/Dropdown.jsx";
+import SearchButton from "../Search/SearchButton.jsx";
 
 const menuItems = [
   {
-    id: 'men',
-    label: 'Men',
+    id: "men",
+    label: "Men",
     featured: {
-      title: 'New Arrivals',
-      description: 'Fresh drops for the new season.',
+      title: "New Arrivals",
+      description: "Fresh drops for the new season.",
       image: null,
     },
     columns: [
       {
-        title: 'Tops',
+        title: "Tops",
         links: [
-          { label: 'T-Shirts', href: '#' },
-          { label: 'Hoodies', href: '#' },
-          { label: 'Long Sleeves', href: '#' },
-          { label: 'Tank Tops', href: '#' },
-          { label: 'Jackets', href: '#' },
+          { label: "T-Shirts", href: "#" },
+          { label: "Hoodies", href: "#" },
+          { label: "Long Sleeves", href: "#" },
+          { label: "Tank Tops", href: "#" },
+          { label: "Jackets", href: "#" },
         ],
       },
       {
-        title: 'Bottoms',
+        title: "Bottoms",
         links: [
-          { label: 'Shorts', href: '#' },
-          { label: 'Joggers', href: '#' },
-          { label: 'Leggings', href: '#' },
-          { label: 'Sweatpants', href: '#' },
+          { label: "Shorts", href: "#" },
+          { label: "Joggers", href: "#" },
+          { label: "Leggings", href: "#" },
+          { label: "Sweatpants", href: "#" },
         ],
       },
       {
-        title: 'Accessories',
+        title: "Accessories",
         links: [
-          { label: 'Caps & Beanies', href: '#' },
-          { label: 'Bags', href: '#' },
-          { label: 'Gloves', href: '#' },
-          { label: 'Socks', href: '#' },
+          { label: "Caps & Beanies", href: "#" },
+          { label: "Bags", href: "#" },
+          { label: "Gloves", href: "#" },
+          { label: "Socks", href: "#" },
         ],
       },
     ],
     highlights: [
-      { label: 'New Arrivals', href: '#' },
-      { label: 'Best Sellers', href: '#' },
-      { label: 'Sale', href: '#', badge: 'UP TO 40% OFF' },
+      { label: "New Arrivals", href: "#" },
+      { label: "Best Sellers", href: "#" },
+      { label: "Sale", href: "#", badge: "UP TO 40% OFF" },
     ],
   },
   {
-    id: 'women',
-    label: 'Women',
+    id: "women",
+    label: "Women",
     featured: {
-      title: 'SS26 Collection',
-      description: 'Built for performance. Designed to stand out.',
+      title: "SS26 Collection",
+      description: "Built for performance. Designed to stand out.",
       image: null,
     },
     columns: [
       {
-        title: 'Tops',
+        title: "Tops",
         links: [
-          { label: 'Sports Bras', href: '#' },
-          { label: 'Tank Tops', href: '#' },
-          { label: 'T-Shirts', href: '#' },
-          { label: 'Hoodies', href: '#' },
-          { label: 'Jackets', href: '#' },
+          { label: "Sports Bras", href: "#" },
+          { label: "Tank Tops", href: "#" },
+          { label: "T-Shirts", href: "#" },
+          { label: "Hoodies", href: "#" },
+          { label: "Jackets", href: "#" },
         ],
       },
       {
-        title: 'Bottoms',
+        title: "Bottoms",
         links: [
-          { label: 'Leggings', href: '#' },
-          { label: 'Shorts', href: '#' },
-          { label: 'Joggers', href: '#' },
-          { label: 'Skirts', href: '#' },
+          { label: "Leggings", href: "#" },
+          { label: "Shorts", href: "#" },
+          { label: "Joggers", href: "#" },
+          { label: "Skirts", href: "#" },
         ],
       },
       {
-        title: 'Accessories',
+        title: "Accessories",
         links: [
-          { label: 'Bags', href: '#' },
-          { label: 'Hair Ties', href: '#' },
-          { label: 'Socks', href: '#' },
-          { label: 'Water Bottles', href: '#' },
+          { label: "Bags", href: "#" },
+          { label: "Hair Ties", href: "#" },
+          { label: "Socks", href: "#" },
+          { label: "Water Bottles", href: "#" },
         ],
       },
     ],
     highlights: [
-      { label: 'New Arrivals', href: '#' },
-      { label: 'Best Sellers', href: '#' },
-      { label: 'Sale', href: '#', badge: 'UP TO 40% OFF' },
+      { label: "New Arrivals", href: "#" },
+      { label: "Best Sellers", href: "#" },
+      { label: "Sale", href: "#", badge: "UP TO 40% OFF" },
     ],
   },
   {
-    id: 'accessories',
-    label: 'Accessories',
+    id: "accessories",
+    label: "Accessories",
     featured: {
-      title: 'Gear Up',
-      description: 'Complete your kit with the essentials.',
+      title: "Gear Up",
+      description: "Complete your kit with the essentials.",
       image: null,
     },
     columns: [
       {
-        title: 'Training',
+        title: "Training",
         links: [
-          { label: 'Gloves', href: '#' },
-          { label: 'Knee Sleeves', href: '#' },
-          { label: 'Wrist Wraps', href: '#' },
-          { label: 'Belts', href: '#' },
+          { label: "Gloves", href: "#" },
+          { label: "Knee Sleeves", href: "#" },
+          { label: "Wrist Wraps", href: "#" },
+          { label: "Belts", href: "#" },
         ],
       },
       {
-        title: 'Carry',
+        title: "Carry",
         links: [
-          { label: 'Gym Bags', href: '#' },
-          { label: 'Backpacks', href: '#' },
-          { label: 'Duffel Bags', href: '#' },
+          { label: "Gym Bags", href: "#" },
+          { label: "Backpacks", href: "#" },
+          { label: "Duffel Bags", href: "#" },
         ],
       },
       {
-        title: 'Lifestyle',
+        title: "Lifestyle",
         links: [
-          { label: 'Caps', href: '#' },
-          { label: 'Beanies', href: '#' },
-          { label: 'Water Bottles', href: '#' },
-          { label: 'Towels', href: '#' },
+          { label: "Caps", href: "#" },
+          { label: "Beanies", href: "#" },
+          { label: "Water Bottles", href: "#" },
+          { label: "Towels", href: "#" },
         ],
       },
     ],
     highlights: [
-      { label: 'New Arrivals', href: '#' },
-      { label: 'All Accessories', href: '#' },
+      { label: "New Arrivals", href: "#" },
+      { label: "All Accessories", href: "#" },
     ],
   },
   {
-    id: 'sale',
-    label: 'Sale',
+    id: "sale",
+    label: "Sale",
     featured: {
-      title: 'Up to 40% Off',
+      title: "Up to 40% Off",
       description: "Limited stock. Don't sleep on it.",
       image: null,
     },
@@ -148,29 +148,29 @@ const menuItems = [
       {
         title: "Men's Sale",
         links: [
-          { label: 'Tops', href: '#' },
-          { label: 'Bottoms', href: '#' },
-          { label: 'Accessories', href: '#' },
+          { label: "Tops", href: "#" },
+          { label: "Bottoms", href: "#" },
+          { label: "Accessories", href: "#" },
         ],
       },
       {
         title: "Women's Sale",
         links: [
-          { label: 'Tops', href: '#' },
-          { label: 'Bottoms', href: '#' },
-          { label: 'Accessories', href: '#' },
+          { label: "Tops", href: "#" },
+          { label: "Bottoms", href: "#" },
+          { label: "Accessories", href: "#" },
         ],
       },
       {
-        title: 'Final Sale',
+        title: "Final Sale",
         links: [
-          { label: 'Under $30', href: '#' },
-          { label: 'Under $50', href: '#' },
-          { label: 'Clearance', href: '#' },
+          { label: "Under $30", href: "#" },
+          { label: "Under $50", href: "#" },
+          { label: "Clearance", href: "#" },
         ],
       },
     ],
-    highlights: [{ label: 'Shop All Sale', href: '#', badge: '40% OFF' }],
+    highlights: [{ label: "Shop All Sale", href: "#", badge: "40% OFF" }],
   },
 ];
 
@@ -179,8 +179,9 @@ export default function MainNavigation() {
 
   const activeMenu = useSelector((state) => state.ui.activeMenu);
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
-
-  const activeItem = menuItems.find((m) => m.id === activeMenu) ?? null;
+  const cartCounter = useSelector((state) =>
+    state.cart.items.reduce((sum, i) => sum + i.qty, 0),
+  );
 
   function toggleBurger() {
     dispatch(uiActions.toggleBurger());
@@ -193,7 +194,10 @@ export default function MainNavigation() {
   return (
     <nav className={styles.nav} onMouseLeave={() => handleActiveMenu(null)}>
       <div className={styles.topBar}>
-        <div className={styles.logo} onMouseEnter={() => handleActiveMenu(null)}>
+        <div
+          className={styles.logo}
+          onMouseEnter={() => handleActiveMenu(null)}
+        >
           <NavLink to="/" end>
             FORGE ATHLETICKS
           </NavLink>
@@ -204,7 +208,7 @@ export default function MainNavigation() {
             <li key={item.id} className={styles.navItem}>
               <button
                 type="button"
-                className={`${styles.navBtn} ${activeMenu === item.id ? styles.navBtnActive : ''} ${item.id === 'sale' ? styles.navBtnSale : ''}`}
+                className={`${styles.navBtn} ${activeMenu === item.id ? styles.navBtnActive : ""} ${item.id === "sale" ? styles.navBtnSale : ""}`}
                 onMouseEnter={() => handleActiveMenu(item.id)}
               >
                 {item.label}
@@ -213,7 +217,10 @@ export default function MainNavigation() {
           ))}
         </ul>
 
-        <div className={styles.utilities} onMouseEnter={() => handleActiveMenu(null)}>
+        <div
+          className={styles.utilities}
+          onMouseEnter={() => handleActiveMenu(null)}
+        >
           <SearchButton />
           <div className={styles.userBtn}>
             <NavLink
@@ -228,14 +235,14 @@ export default function MainNavigation() {
               to="/cart"
               aria-label="Click here to access your cart"
             ></NavLink>
-            <span className={styles.cartBadge}>0</span>
+            <span className={styles.cartBadge}>{cartCounter}</span>
           </div>
 
           <button
             type="button"
             className={`${styles.burger} ${burgerOpen && styles.burgerActive}`}
             onClick={toggleBurger}
-            aria-label={burgerOpen ? 'Close menu' : 'Open menu'}
+            aria-label={burgerOpen ? "Close menu" : "Open menu"}
             aria-expanded={burgerOpen}
           >
             <span></span>

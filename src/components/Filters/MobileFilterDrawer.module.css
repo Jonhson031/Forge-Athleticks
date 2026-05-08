@@ -1,0 +1,91 @@
+.drawerBackdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 200;
+}
+
+.filterDrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 22rem;
+    background-color: var(--bg-sidebar);
+    border-right: 0.0625rem solid var(--border);
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.filterDrawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.25rem;
+    border-bottom: 0.0625rem solid var(--border);
+    flex-shrink: 0;
+}
+
+.filterDrawerTitle {
+    color: var(--text-primary);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.filterDrawerClose {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+.filterDrawerClose:hover {
+    color: var(--text-primary);
+}
+
+.filterDrawerBody {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 1.25rem;
+}
+
+/* Override sidebar inside drawer — remove sticky */
+.filterDrawerBody .sidebar {
+    position: static;
+    padding-top: 1rem;
+}
+
+.filterDrawerFooter {
+    padding: 1.25rem;
+    border-top: 0.0625rem solid var(--border);
+    flex-shrink: 0;
+}
+
+.applyBtn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.applyBtn:hover {
+    background-color: var(--btn-hover);
+}

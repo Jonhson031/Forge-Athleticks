@@ -1,17 +1,12 @@
 .footer {
-    --bg: var(--bg-page);
-    --bg-copyright: #000000;
-    --text-link: #aaaaaa;
-    --text-link-hover: #ffffff;
-
-    background-color: var(--bg);
-    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    font-family: var(--font);
 }
 
 .mainRow {
     padding: 4rem 0;
     display: grid;
-    grid-template-columns: 0.6fr 1fr 0.4fr;
+    grid-template-columns: auto 1fr auto;
     gap: 2.5rem;
     border-bottom: 1px solid var(--border);
 }
@@ -129,7 +124,7 @@
 }
 
 .copyrightRow {
-    background-color: var(--bg-copyright);
+    background-color: var(--bg);
     padding: 0.875rem 2.5rem;
 }
 
@@ -138,8 +133,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
-    max-width: 83.5rem;
-    box-sizing: border-box;
+    max-width: 90rem;
     margin: 0 auto;
     gap: 1rem;
     flex-wrap: wrap;

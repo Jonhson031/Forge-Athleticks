@@ -1,36 +1,33 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import styles from './ProductPage.module.css';
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import styles from "./ProductDetail.module.css";
+import { ALL_PRODUCTS } from "../../assets/data";
+import { cartActions } from "../../redux/store/cartSlice.js";
 
-const product = {
-  id: 1,
-  name: 'Alpha Training Tee',
-  price: '$39',
-  badge: 'NEW',
-  description:
-    'Engineered for high-intensity training, the Alpha Training Tee features a four-way stretch fabric that moves with you through every rep. Moisture-wicking technology keeps you dry while the tailored athletic fit ensures you look sharp from warm-up to cool-down.',
-  details: [
-    '87% Polyester / 13% Elastane',
-    'Four-way stretch fabric',
-    'Moisture-wicking technology',
-    'Flatlock seams — no chafing',
-    'Machine washable',
-  ],
-  colors: [
-    { id: 'black', label: 'Black', hex: '#0a0a0a' },
-    { id: 'white', label: 'White', hex: '#f5f5f5' },
-    { id: 'charcoal', label: 'Charcoal', hex: '#2e2e2e' },
-    { id: 'stone', label: 'Stone', hex: '#9e9e8e' },
-  ],
-  sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-  images: [null, null, null, null],
-};
+export default function ProductDetail() {
+  const { id } = useParams();
+  const product = ALL_PRODUCTS.find((p) => p.id === parseInt(id)) || product;
 
-export default function ProductPage() {
   const [activeImage, setActiveImage] = useState(0);
   const [activeColor, setActiveColor] = useState(product.colors[0].id);
   const [activeSize, setActiveSize] = useState(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    const item = {
+      id: product.id,
+      name: product.name,
+      color: product.colors.find((c) => c.id === activeColor)?.label || "",
+      size: activeSize,
+      price: product.price,
+      qty: 1,
+      image: product.images[0] || null,
+    };
+    dispatch(cartActions.addItemToCart(item));
+  }
 
   return (
     <main className={styles.page}>
@@ -41,11 +38,15 @@ export default function ProductPage() {
               <button
                 key={i}
                 type="button"
-                className={`${styles.thumb} ${activeImage === i ? styles.thumbActive : ''}`}
+                className={`${styles.thumb} ${activeImage === i ? styles.thumbActive : ""}`}
                 onClick={() => setActiveImage(i)}
               >
                 {img ? (
-                  <img src={img} alt={`View ${i + 1}`} className={styles.thumbImg} />
+                  <img
+                    src={img}
+                    alt={`View ${i + 1}`}
+                    className={styles.thumbImg}
+                  />
                 ) : (
                   <span className={styles.thumbPlaceholder}>{i + 1}</span>
                 )}
@@ -62,11 +63,15 @@ export default function ProductPage() {
               />
             ) : (
               <div className={styles.mainImagePlaceholder}>
-                <span className={styles.mainImageLabel}>Product Image {activeImage + 1}</span>
+                <span className={styles.mainImageLabel}>
+                  Product Image {activeImage + 1}
+                </span>
               </div>
             )}
 
-            {product.badge && <span className={styles.badge}>{product.badge}</span>}
+            {product.badge && (
+              <span className={styles.badge}>{product.badge}</span>
+            )}
 
             <span className={styles.imageCounter}>
               {activeImage + 1} / {product.images.length}
@@ -76,20 +81,23 @@ export default function ProductPage() {
 
         <div className={styles.info}>
           <p className={styles.breadcrumb}>
-            <a href="#" className={styles.breadcrumbLink}>
+            <Link to="/products/all" className={styles.breadcrumbLink}>
               Shop
-            </a>
+            </Link>
             <span className={styles.breadcrumbSep}>›</span>
-            <a href="#" className={styles.breadcrumbLink}>
-              Men's Gear
-            </a>
+            <Link
+              to={`/products/${product.gender}`}
+              className={styles.breadcrumbLink}
+            >
+              {product.gender === "men" ? "Men's Gear" : "Women's Gear"}
+            </Link>
             <span className={styles.breadcrumbSep}>›</span>
             <span className={styles.breadcrumbCurrent}>{product.name}</span>
           </p>
 
           <div className={styles.nameRow}>
             <h1 className={styles.name}>{product.name}</h1>
-            <p className={styles.price}>{product.price}</p>
+            <p className={styles.price}>${product.price.toFixed(2)}</p>
           </div>
 
           <div className={styles.divider} />
@@ -102,12 +110,12 @@ export default function ProductPage() {
               </p>
             </div>
             <div className={styles.colorOptions}>
-              {product.colors.map((color) => (
+              {product.colors.map((color, i) => (
                 <button
                   key={color.id}
                   type="button"
                   title={color.label}
-                  className={`${styles.colorSwatch} ${activeColor === color.id ? styles.colorSwatchActive : ''}`}
+                  className={`${styles.colorSwatch} ${activeColor === color.id ? styles.colorSwatchActive : ""}`}
                   style={{ backgroundColor: color.hex }}
                   onClick={() => setActiveColor(color.id)}
                 />
@@ -129,7 +137,7 @@ export default function ProductPage() {
                 <button
                   key={size}
                   type="button"
-                  className={`${styles.sizeBtn} ${activeSize === size ? styles.sizeBtnActive : ''}`}
+                  className={`${styles.sizeBtn} ${activeSize === size ? styles.sizeBtnActive : ""}`}
                   onClick={() => setActiveSize(size)}
                 >
                   {size}
@@ -140,10 +148,11 @@ export default function ProductPage() {
 
           <button
             type="button"
-            className={`${styles.addBtn} ${!activeSize ? styles.addBtnDisabled : ''}`}
+            className={`${styles.addBtn} ${!activeSize ? styles.addBtnDisabled : ""}`}
+            onClick={handleAddToCart}
             disabled={!activeSize}
           >
-            {activeSize ? 'ADD TO BAG' : 'SELECT A SIZE'}
+            {activeSize ? "ADD TO BAG" : "SELECT A SIZE"}
             {activeSize && (
               <svg
                 width="14"
@@ -192,7 +201,7 @@ export default function ProductPage() {
             >
               <span>Product Details</span>
               <span
-                className={`${styles.accordionIcon} ${detailsOpen ? styles.accordionIconOpen : ''}`}
+                className={`${styles.accordionIcon} ${detailsOpen ? styles.accordionIconOpen : ""}`}
               >
                 +
               </span>

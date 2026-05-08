@@ -1,6 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import styles from './FAQs.module.css';
-import { uiActions } from '../../store/uiSlice';
+import { useSelector, useDispatch } from "react-redux";
+import styles from "./FAQs.module.css";
+import { uiActions } from "../../redux/store/uiSlice";
 
 export default function FAQItem({ faq }) {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export default function FAQItem({ faq }) {
   const isOpen = openId === faq.id;
 
   return (
-    <div className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}>
+    <div className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}>
       <button
         type="button"
         className={styles.trigger}
@@ -22,7 +22,7 @@ export default function FAQItem({ faq }) {
       >
         <span className={styles.question}>{faq.question}</span>
         <span className={styles.icon} aria-hidden="true">
-          {isOpen ? '−' : '+'}
+          {isOpen ? "−" : "+"}
         </span>
       </button>
 

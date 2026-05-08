@@ -1,29 +1,49 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from "@eslint/js";
+import globals from "globals";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
+  js.configs.recommended,
+
   {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
+    files: ["**/*.{js,jsx}"],
+
     languageOptions: {
-      ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true, // 🔥 IMPORTANT
+        },
       },
     },
+
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+    },
+
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      "no-unused-vars": "warn", // 👈 unused consts
+      "no-console": "off",
+
+      "react/jsx-uses-vars": "warn", // 🔥 FIX
+
+      // React rules
+      "react/react-in-jsx-scope": "off", // for Vite/React 17+
+      "react/jsx-uses-react": "off",
+
+      // Hooks rules
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+    },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
-])
+];

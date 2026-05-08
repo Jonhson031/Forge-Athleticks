@@ -1,13 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/uiSlice';
-import styles from './MobileDrawer.module.css';
-import { menuItems } from '../../assets/data.js';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux/store/uiSlice";
+import styles from "./MobileDrawer.module.css";
+import { menuItems } from "../../assets/data.js";
+import { Link } from "react-router-dom";
 
 export default function MobileDrawer() {
   const dispatch = useDispatch();
-
-  const activeMenu = useSelector((state) => state.ui.activeMenu);
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
   const mobileExpanded = useSelector((state) => state.ui.mobileExpanded);
 
@@ -18,10 +16,14 @@ export default function MobileDrawer() {
   if (!burgerOpen) return;
 
   return (
-    <div className={`${styles.drawer} ${burgerOpen ? styles.drawerOpen : ''}`}>
+    <div className={`${styles.drawer} ${burgerOpen ? styles.drawerOpen : ""}`}>
       <div className={styles.drawerSearch}>
         <span className="icon-search"></span>
-        <input type="text" placeholder="Search..." className={styles.drawerSearchInput} />
+        <input
+          type="text"
+          placeholder="Search..."
+          className={styles.drawerSearchInput}
+        />
       </div>
 
       <ul className={styles.drawerList}>
@@ -29,13 +31,13 @@ export default function MobileDrawer() {
           <li key={item.id} className={styles.drawerItem}>
             <button
               type="button"
-              className={`${styles.drawerToggle} ${item.id === 'sale' ? styles.drawerToggleSale : ''}`}
+              className={`${styles.drawerToggle} ${item.id === "sale" ? styles.drawerToggleSale : ""}`}
               onClick={() => toggleMobileSection(item.id)}
               aria-expanded={mobileExpanded === item.id}
             >
               <span>{item.label}</span>
               <span
-                className={`${styles.drawerChevron} ${mobileExpanded === item.id ? styles.drawerChevronOpen : ''}`}
+                className={`${styles.drawerChevron} ${mobileExpanded === item.id ? styles.drawerChevronOpen : ""}`}
               >
                 ›
               </span>
@@ -68,7 +70,9 @@ export default function MobileDrawer() {
                       >
                         {highlight.label}
                         {highlight.badge && (
-                          <span className={styles.linkBadge}>{highlight.badge}</span>
+                          <span className={styles.linkBadge}>
+                            {highlight.badge}
+                          </span>
                         )}
                       </Link>
                     ))}

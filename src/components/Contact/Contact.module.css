@@ -1,7 +1,5 @@
 .page {
-    --bg: var(--bg-page);
-
-    background-color: var(--bg);
+    background-color: var(--bg-page);
     color: var(--text-primary);
     font-family: var(--font);
     min-height: 100vh;

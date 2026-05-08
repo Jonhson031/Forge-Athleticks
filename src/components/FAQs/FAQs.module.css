@@ -8,7 +8,7 @@
     --tab-active: #000000;
 
     background-color: var(--bg);
-    font-family: var(--font-body);
+    font-family: var(--font);
     padding: 6rem 2.5rem;
     box-sizing: border-box;
     border-bottom: var(--border-b-page);
@@ -75,7 +75,7 @@
     border: none;
     border-right: 0.0625rem solid var(--border);
     color: var(--tab-text);
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -137,7 +137,7 @@
 
 .question {
     color: var(--text-primary);
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1.4;

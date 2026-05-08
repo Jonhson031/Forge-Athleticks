@@ -1,7 +1,8 @@
 .card {
+    --card-hover: #1e1e1e;
     display: flex;
     flex-direction: column;
-    background-color: var(--card-bg);
+    background-color: var(--bg-card);
     border: 1px solid var(--border);
     transition: background-color 0.25s ease, transform 0.25s ease;
     cursor: pointer;
@@ -14,12 +15,20 @@
 
 .cardWhite {
     background-color: var(--bg-white);
+    border: 1px solid var(#bdbdbd);
 }
 
 .cardWhite:hover {
     background-color: var(--bg-white);
 }
 
+.cardImage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: #1e1e1e;
+    overflow: hidden;
+}
 
 .imageWrapper {
     position: relative;
@@ -57,10 +66,17 @@
     text-transform: uppercase;
 }
 
-.badge {
+.cardBadges {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.badge {
+    display: inline-block;
     background-color: var(--badge-bg);
     color: var(--badge-text);
     font-size: 0.625rem;
@@ -71,92 +87,106 @@
     pointer-events: none;
 }
 
-.hoverOverlay {
+.badgeSale {
+    background-color: var(--badge-sale-bg);
+    color: var(--text-primary);
+}
+
+.badgeDiscount {
+    background-color: #000;
+    color: #fff;
+    border: 0.0625rem solid var(--border);
+}
+
+.cardOverlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem;
     background-color: #ffffff;
-    padding: 0.75rem;
-    text-align: center;
     transform: translateY(100%);
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.card:hover .hoverOverlay {
+.card:hover .cardOverlay {
     transform: translateY(0);
 }
 
-.quickAdd {
-    color: #000000;
-    font-size: 0.75rem;
+.quickAddBtn {
+    background: none;
+    border: none;
+    color: #000;
+    font-family: var(--font);
+    font-size: 0.625rem;
     font-weight: 900;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
-.info {
+.cardInfo {
+    padding: 0.75rem;
     display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 1rem;
+}
+
+.cardCategory {
+    color: var(--text-muted);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.cardRow {
+    display: flex;
+    align-items: flex-start;
     justify-content: space-between;
-    align-items: center;
-    padding: 12px 14px 8px;
     gap: 0.5rem;
 }
 
-.name {
+.cardName {
     color: var(--text-primary);
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: clamp(0.8125rem, 0.7473rem + 0.3261vw, 1rem);
+    font-weight: 600;
     line-height: 1.4;
     margin: 0;
 }
 
-.cardWhite .name {
+.cardWhite .cardName {
     color: #000000;
 }
 
-.price {
+.cardPricing {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.cardPrice {
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: clamp(0.8125rem, 0.7473rem + 0.3261vw, 1rem);
     font-weight: 800;
     margin: 0;
     flex-shrink: 0;
 }
 
-.cardWhite .price {
+.cardWhite .cardPrice {
     color: #000000;
 }
 
-.addBtn {
-    margin: 0 0.875rem 0.875rem;
-    padding: 0.625rem 0;
-    background-color: var(--btn-bg);
-    color: var(--btn-text);
-    border: none;
-    font-size: 0.75rem;
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-family: var(--font-body);
-    width: calc(100% - 28px);
-}
-
-.cardWhite .addBtn {
-    color: #fff;
-    background-color: #000000;
-}
-
-.addBtn:hover {
-    background-color: var(--btn-hover-bg);
-}
-
-.cardWhite .addBtn:hover {
-    color: #fff;
-    background-color: #000000a9;
-}
-
-.addBtn:active {
-    background-color: #c8c8c8;
+.cardOriginalPrice {
+    color: var(--badge-sale-bg);
+    text-decoration: line-through;
+    font-size: clamp(0.725rem, 0.5473rem + 0.3261vw, 0.875rem);
 }

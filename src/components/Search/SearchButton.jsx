@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/uiSlice.js';
-import styles from './SearchButton.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux/store/uiSlice.js";
+import styles from "./SearchButton.module.css";
 
 export default function SearchButton() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function SearchButton() {
     <button
       type="button"
       className={styles.searchBtn}
-      aria-label={searchOpen ? 'Close search' : 'Open search'}
+      aria-label={searchOpen ? "Close search" : "Open search"}
       onClick={searchOpen ? closeSearch : openSearch}
     >
       {searchOpen ? (

@@ -1,23 +1,35 @@
-import { Link, NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/uiSlice.js';
-import styles from './Dropdown.module.css';
-import { menuItems } from '../../assets/data.js';
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux/store/uiSlice.js";
+import styles from "./Dropdown.module.css";
+import { menuItems } from "../../assets/data.js";
+import { useCallback, useEffect } from "react";
 
 export default function Dropdown() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const activeMenu = useSelector((state) => state.ui.activeMenu);
   const activeItem = menuItems.find((m) => m.id === activeMenu) ?? null;
 
-  function handleActiveMenu(id) {
-    dispatch(uiActions.setActiveMenu(id));
-  }
+  const handleActiveMenu = useCallback(
+    (id) => {
+      dispatch(uiActions.setActiveMenu(id));
+    },
+    [dispatch],
+  );
+
+  useEffect(() => {
+    handleActiveMenu(null);
+  }, [location.pathname, handleActiveMenu]);
 
   if (!activeItem) return;
 
   return (
-    <div className={styles.dropdown} onMouseEnter={() => handleActiveMenu(activeItem.id)}>
+    <div
+      className={styles.dropdown}
+      onMouseEnter={() => handleActiveMenu(activeItem.id)}
+    >
       <div className={styles.dropdownInner}>
         <div className={styles.featured}>
           <div className={styles.featuredImage}>
@@ -28,14 +40,23 @@ export default function Dropdown() {
                 className={styles.featuredImg}
               />
             ) : (
-              <span className={styles.featuredImgPlaceholder}>Campaign Image</span>
+              <span className={styles.featuredImgPlaceholder}>
+                Campaign Image
+              </span>
             )}
           </div>
           <div className={styles.featuredBody}>
             <p className={styles.featuredEyebrow}>{activeItem.label}</p>
-            <h2 className={styles.featuredTitle}>{activeItem.featured.title}</h2>
-            <p className={styles.featuredDesc}>{activeItem.featured.description}</p>
-            <Link to={`${activeItem.id}`} className={styles.featuredCta}>
+            <h2 className={styles.featuredTitle}>
+              {activeItem.featured.title}
+            </h2>
+            <p className={styles.featuredDesc}>
+              {activeItem.featured.description}
+            </p>
+            <Link
+              to={`/products/${activeItem.id}`}
+              className={styles.featuredCta}
+            >
               Shop Now →
             </Link>
           </div>
@@ -50,7 +71,10 @@ export default function Dropdown() {
               <ul className={styles.colList}>
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.link} className={styles.colLink}>
+                    <Link
+                      to={`/products/${link.link}`}
+                      className={styles.colLink}
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -65,10 +89,15 @@ export default function Dropdown() {
               <ul className={styles.colList}>
                 {activeItem.highlights.map((highlight) => (
                   <li key={highlight.label}>
-                    <Link to={highlight.link} className={styles.colLink}>
+                    <Link
+                      to={`/products/${highlight.link}`}
+                      className={styles.colLink}
+                    >
                       {highlight.label}
                       {highlight.badge && (
-                        <span className={styles.linkBadge}>{highlight.badge}</span>
+                        <span className={styles.linkBadge}>
+                          {highlight.badge}
+                        </span>
                       )}
                     </Link>
                   </li>

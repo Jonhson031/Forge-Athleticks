@@ -8,7 +8,7 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     margin-bottom: 1rem;
-    font-family: var(--font-body);
+    font-family: var(--font);
 }
 
 .eyebrowLine {
@@ -21,7 +21,7 @@
 
 .title {
     color: var(--text-primary);
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     text-transform: uppercase;

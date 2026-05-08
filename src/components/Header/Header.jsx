@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import styles from './Header.module.css';
-import MainNavigation from '../MainNavigation/MainNavigation';
-import MobileDrawer from '../MobileDrawer/MobileDrawer';
-import { uiActions } from '../../store/uiSlice';
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import styles from "./Header.module.css";
+import MainNavigation from "../MainNavigation/MainNavigation";
+import MobileDrawer from "../MobileDrawer/MobileDrawer";
+import { uiActions } from "../../redux/store/uiSlice";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -47,10 +47,10 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = burgerOpen ? 'hidden' : '';
+    document.body.style.overflow = burgerOpen ? "hidden" : "";
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [burgerOpen, searchOpen]);
 
@@ -58,11 +58,13 @@ export default function Header() {
     <>
       <div ref={triggerRef}></div>
 
-      <header className={`${styles.header} ${sticky ? styles.sticky : ''}`}>
+      <header className={`${styles.header} ${sticky ? styles.sticky : ""}`}>
         <MainNavigation />
         <MobileDrawer />
 
-        {burgerOpen && <div className={styles.mobileBackdrop} onClick={toggleBurger}></div>}
+        {burgerOpen && (
+          <div className={styles.mobileBackdrop} onClick={toggleBurger}></div>
+        )}
         {/* {searchOpen && overlay(() => closeSearch)}
         {activeMenu && overlay(() => closeActiveMenu)} */}
       </header>

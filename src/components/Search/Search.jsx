@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { uiActions } from '../../store/uiSlice.js';
-import styles from './Search.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../redux/store/uiSlice.js";
+import styles from "./Search.module.css";
 
 export default function Search() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function Search() {
   }
 
   function handleSearchKey(e) {
-    if (e.key === 'Escape') closeSearch();
+    if (e.key === "Escape") closeSearch();
   }
 
   if (!searchOpen) return;
@@ -54,7 +54,7 @@ export default function Search() {
           <button
             type="button"
             className={styles.searchClearBtn}
-            onClick={() => handleSearchValue('')}
+            onClick={() => handleSearchValue("")}
             aria-label="Clear search"
           >
             <svg
@@ -65,7 +65,11 @@ export default function Search() {
               strokeWidth="1.5"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         )}
@@ -84,7 +88,13 @@ export default function Search() {
         <div className={styles.searchQuickLinks}>
           <p className={styles.searchQuickLabel}>Popular Searches</p>
           <div className={styles.searchQuickTags}>
-            {['Training Tee', 'Hoodies', 'Leggings', 'New Arrivals', 'Sale'].map((tag) => (
+            {[
+              "Training Tee",
+              "Hoodies",
+              "Leggings",
+              "New Arrivals",
+              "Sale",
+            ].map((tag) => (
               <button
                 key={tag}
                 type="button"

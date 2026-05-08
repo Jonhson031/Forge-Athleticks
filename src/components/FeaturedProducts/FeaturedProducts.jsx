@@ -1,6 +1,7 @@
 import styles from './FeaturedProducts.module.css';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import TitleSection from '../TitleSection/TitleSection.jsx';
+import { ALL_PRODUCTS } from '../../assets/data.js';
 
 // ── Product data ──────────────────────────────
 const products = [
@@ -48,8 +49,8 @@ export default function FeaturedProducts({ title, eyebrowText, bgWhite = '' }) {
 
         {/* Product grid */}
         <div className={styles.grid}>
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} bgWhite={bgWhite} />
+          {ALL_PRODUCTS.slice(0, 4).map((product) => (
+            <ProductCard key={product.id} product={product} bgWhite={bgWhite} colorDots={false} />
           ))}
         </div>
       </div>
