@@ -2,16 +2,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../redux/store/uiSlice";
 import styles from "./MobileDrawer.module.css";
 import { menuItems } from "../../assets/data.js";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useCallback, useEffect } from "react";
 
 export default function MobileDrawer() {
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
   const mobileExpanded = useSelector((state) => state.ui.mobileExpanded);
 
   function toggleMobileSection(id) {
     dispatch(uiActions.setMobileExpanded(id));
   }
+
+  const handleCloseBurger = useCallback(() => {
+    dispatch(uiActions.setIsBurgerOpen(false));
+  }, [dispatch]);
+
+  useEffect(() => {
+    handleCloseBurger();
+  }, [location.pathname, handleCloseBurger]);
 
   if (!burgerOpen) return;
 
@@ -51,7 +62,10 @@ export default function MobileDrawer() {
                     <ul className={styles.drawerSubList}>
                       {col.links.map((link) => (
                         <li key={link.label}>
-                          <Link to={link.link} className={styles.drawerSubLink}>
+                          <Link
+                            to={`/products/${link.link}`}
+                            className={styles.drawerSubLink}
+                          >
                             {link.label}
                           </Link>
                         </li>
@@ -65,7 +79,7 @@ export default function MobileDrawer() {
                     {item.highlights.map((highlight) => (
                       <Link
                         key={highlight.label}
-                        to={highlight.link}
+                        to={`/products/${highlight.link}`}
                         className={styles.drawerHighlightLink}
                       >
                         {highlight.label}

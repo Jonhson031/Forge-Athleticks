@@ -183,8 +183,8 @@ export default function MainNavigation() {
     state.cart.items.reduce((sum, i) => sum + i.qty, 0),
   );
 
-  function toggleBurger() {
-    dispatch(uiActions.toggleBurger());
+  function handleBurgerOpen() {
+    dispatch(uiActions.setIsBurgerOpen());
   }
 
   function handleActiveMenu(id) {
@@ -241,7 +241,7 @@ export default function MainNavigation() {
           <button
             type="button"
             className={`${styles.burger} ${burgerOpen && styles.burgerActive}`}
-            onClick={toggleBurger}
+            onClick={handleBurgerOpen}
             aria-label={burgerOpen ? "Close menu" : "Open menu"}
             aria-expanded={burgerOpen}
           >

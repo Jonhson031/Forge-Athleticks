@@ -20,8 +20,9 @@ export const uiSlice = createSlice({
   initialState,
   reducers: {
     // Navigation:
-    toggleBurger(state) {
-      state.burgerOpen = !state.burgerOpen;
+    setIsBurgerOpen(state, action) {
+      state.burgerOpen =
+        action.payload !== undefined ? action.payload : !state.burgerOpen;
       state.searchOpen = false;
       state.mobileExpanded = null;
       state.searchValue = "";

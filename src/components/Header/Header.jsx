@@ -10,19 +10,19 @@ export default function Header() {
   const dispatch = useDispatch();
   const burgerOpen = useSelector((state) => state.ui.burgerOpen);
   const searchOpen = useSelector((state) => state.ui.searchOpen);
-  const activeMenu = useSelector((state) => state.ui.activeMenu);
+  // const activeMenu = useSelector((state) => state.ui.activeMenu);
 
-  function toggleBurger() {
-    dispatch(uiActions.toggleBurger());
+  function handleCloseBurger() {
+    dispatch(uiActions.setIsBurgerOpen(false));
   }
 
-  function closeSearch() {
-    dispatch(uiActions.closeSearchMenu());
-  }
+  // function closeSearch() {
+  //   dispatch(uiActions.closeSearchMenu());
+  // }
 
-  function closeActiveMenu() {
-    dispatch(uiActions.setActiveMenu(null));
-  }
+  // function closeActiveMenu() {
+  //   dispatch(uiActions.setActiveMenu(null));
+  // }
 
   const [sticky, setSticky] = useState(false);
   const triggerRef = useRef(null);
@@ -63,7 +63,10 @@ export default function Header() {
         <MobileDrawer />
 
         {burgerOpen && (
-          <div className={styles.mobileBackdrop} onClick={toggleBurger}></div>
+          <div
+            className={styles.mobileBackdrop}
+            onClick={handleCloseBurger}
+          ></div>
         )}
         {/* {searchOpen && overlay(() => closeSearch)}
         {activeMenu && overlay(() => closeActiveMenu)} */}
