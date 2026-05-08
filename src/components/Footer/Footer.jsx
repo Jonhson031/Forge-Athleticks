@@ -1,89 +1,100 @@
-import { Link } from 'react-router-dom';
-import styles from './Footer.module.css';
-
-// ── Data ──────────────────────────────────────
+import { Link } from "react-router-dom";
+import styles from "./Footer.module.css";
 
 const navColumns = [
   {
-    title: 'Shop',
+    title: "Shop",
     links: [
       {
         title: "Men's Gear",
-        link: '/mens-gear',
+        link: "/mens-gear",
       },
       {
         title: "Women's Gear",
-        link: '/womens-gear',
+        link: "/womens-gear",
       },
       {
-        title: 'Accessories',
-        link: '/accessories',
+        title: "Accessories",
+        link: "/accessories",
       },
       {
-        title: 'Sale',
-        link: '/sale',
-      },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      {
-        title: 'About Us',
-        link: '/about',
-      },
-      {
-        title: 'Careers',
-        link: '/careers',
-      },
-      {
-        title: 'Press',
-        link: '/press',
-      },
-      {
-        title: 'Affiliates',
-        link: '/affiliates',
+        title: "Sale",
+        link: "/sale",
       },
     ],
   },
   {
-    title: 'Support',
-    links: ['FAQ', 'Shipping', 'Returns', 'Contact Us'],
+    title: "Company",
     links: [
       {
-        title: 'FAQ',
-        link: '/faq',
+        title: "About Us",
+        link: "/about",
       },
       {
-        title: 'Shipping',
-        link: '/shipping',
+        title: "Careers",
+        link: "/careers",
       },
       {
-        title: 'Returns',
-        link: '/returns',
+        title: "Press",
+        link: "/press",
       },
       {
-        title: 'Contact Us',
-        link: '/contact',
+        title: "Affiliates",
+        link: "/affiliates",
+      },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      {
+        title: "FAQ",
+        link: "/faq",
+      },
+      {
+        title: "Shipping",
+        link: "/shipping",
+      },
+      {
+        title: "Returns",
+        link: "/returns",
+      },
+      {
+        title: "Contact Us",
+        link: "/contact",
       },
     ],
   },
 ];
 
 const socials = [
-  { icon: 'icon-facebook', href: '#' },
-  { icon: 'icon-instagram', href: '#' },
-  { icon: 'icon-twitter', href: '#' },
+  {
+    icon: "icon-facebook",
+    label: "Visit our facebook page",
+    href: "https://www.facebook.com/",
+  },
+  {
+    icon: "icon-instagram",
+    label: "Visit our instagram page",
+    href: "https://www.instagram.com/",
+  },
+  {
+    icon: "icon-twitter",
+    label: "Visit our x (twitter) page",
+    href: "https://x.com/",
+  },
 ];
 
 const contact = {
-  phone: '+1 (800) 555-FORGE',
-  address: 'Chicago, IL, USA',
+  phone: "+1 (800) 555-FORGE",
+  address: "Chicago, IL, USA",
 };
 
-const copyrightLinks = ['Privacy Policy', 'Terms of Service', 'Cookie Settings'];
-
-// ── Footer ────────────────────────────────────
+const copyrightLinks = [
+  "Privacy Policy",
+  "Terms of Service",
+  "Cookie Settings",
+];
 
 export default function Footer() {
   return (
@@ -119,7 +130,12 @@ export default function Footer() {
             <ul className={styles.socialList}>
               {socials.map((social) => (
                 <li key={social.icon}>
-                  <Link to={social.href} className={`${styles.socialLink} ${social.icon}`}></Link>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    aria-label="label"
+                    className={`${styles.socialLink} ${social.icon}`}
+                  ></a>
                 </li>
               ))}
             </ul>
@@ -139,7 +155,10 @@ export default function Footer() {
           <ul className={styles.copyrightLinks}>
             {copyrightLinks.map((link) => (
               <li key={link}>
-                <Link to={`/${link.toLowerCase()}`} className={styles.copyrightLink}>
+                <Link
+                  to={`/${link.toLowerCase()}`}
+                  className={styles.copyrightLink}
+                >
                   {link}
                 </Link>
               </li>

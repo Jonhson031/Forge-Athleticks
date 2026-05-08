@@ -11,6 +11,7 @@ import { ALL_PRODUCTS } from "../../assets/data.js";
 import Sort from "../Sort/Sort.jsx";
 import ActiveFilters from "../Filters/ActiveFilters.jsx";
 import { selectActiveFiltersCount } from "../../redux/selectors/filtersSelectors.js";
+import SEO from "../SEO/SEO.jsx";
 
 const DEFAULT_FILTERS = {
   gender: [],
@@ -35,6 +36,28 @@ export default function Products() {
     parts[0] === "men" || parts[0] === "women" ? parts[0] : null;
   let initialType =
     parts.slice(1).join("-") !== "sale" ? parts.slice(1).join("-") : null;
+
+  // SEO VALUES
+  const genderLabel = initialGender
+    ? initialGender.charAt(0).toUpperCase() + initialGender.slice(1)
+    : "";
+
+  const typeLabel = initialType
+    ? initialType
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : "Gym Apparel";
+
+  const seoTitle = isSale
+    ? `${genderLabel ? `${genderLabel}'s ` : ""}Sale | Forge Athletics`
+    : `${genderLabel ? `${genderLabel}'s ` : ""}${typeLabel} | Forge Athletics`;
+
+  const seoDescription = isSale
+    ? `Shop discounted gym apparel and activewear at Forge Athletics. Limited-time deals on premium fitness clothing.`
+    : `Shop ${genderLabel.toLowerCase() || ""} ${typeLabel.toLowerCase()} designed for performance, comfort, and style at Forge Athletics.`;
+  // ---------------------
+
   const dispatch = useDispatch();
 
   function openMobileFilterDrawer() {
@@ -125,77 +148,81 @@ export default function Products() {
       : "All Products";
 
   return (
-    <main className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.pageHeader}>
-          <Eyebrow text={"shop"}></Eyebrow>
-          <h1 className={styles.pageTitle}>{pageTitle}</h1>
-        </div>
-        <div className={styles.layout}>
-          <FilterSidebar onClear={clearFilters} />
+    <>
+      <SEO title={seoTitle} description={seoDescription} />
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <div className={styles.pageHeader}>
+            <Eyebrow text={"shop"}></Eyebrow>
+            <h1 className={styles.pageTitle}>{pageTitle}</h1>
+          </div>
+          <div className={styles.layout}>
+            <FilterSidebar onClear={clearFilters} />
 
-          <MobileFilterDrawer
-            clearFilters={clearFilters}
-            filtered={filtered}
-          ></MobileFilterDrawer>
+            <MobileFilterDrawer
+              clearFilters={clearFilters}
+              filtered={filtered}
+            ></MobileFilterDrawer>
 
-          <div className={styles.content}>
-            <div className={styles.toolbar}>
-              <div className={styles.toolbarLeft}>
-                <button
-                  type="button"
-                  className={styles.mobileFilterBtn}
-                  onClick={openMobileFilterDrawer}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
+            <div className={styles.content}>
+              <div className={styles.toolbar}>
+                <div className={styles.toolbarLeft}>
+                  <button
+                    type="button"
+                    className={styles.mobileFilterBtn}
+                    onClick={openMobileFilterDrawer}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25"
-                    />
-                  </svg>
-                  Filters {totalActiveFilters > 0 && `(${totalActiveFilters})`}
-                </button>
-                <p className={styles.resultCount}>
-                  {filtered.length}{" "}
-                  {filtered.length === 1 ? "product" : "products"}
-                </p>
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25"
+                      />
+                    </svg>
+                    Filters{" "}
+                    {totalActiveFilters > 0 && `(${totalActiveFilters})`}
+                  </button>
+                  <p className={styles.resultCount}>
+                    {filtered.length}{" "}
+                    {filtered.length === 1 ? "product" : "products"}
+                  </p>
+                </div>
+                <Sort />
               </div>
-              <Sort />
-            </div>
 
-            <ActiveFilters />
-            {filtered.length > 0 ? (
-              <div className={styles.grid}>
-                {filtered.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            ) : (
-              <div className={styles.empty}>
-                <p className={styles.emptyTitle}>No products found</p>
-                <p className={styles.emptyBody}>
-                  Try adjusting or clearing your filters.
-                </p>
-                <button
-                  type="button"
-                  className={styles.emptyBtn}
-                  onClick={clearFilters}
-                >
-                  Clear Filters
-                </button>
-              </div>
-            )}
+              <ActiveFilters />
+              {filtered.length > 0 ? (
+                <div className={styles.grid}>
+                  {filtered.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.empty}>
+                  <p className={styles.emptyTitle}>No products found</p>
+                  <p className={styles.emptyBody}>
+                    Try adjusting or clearing your filters.
+                  </p>
+                  <button
+                    type="button"
+                    className={styles.emptyBtn}
+                    onClick={clearFilters}
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

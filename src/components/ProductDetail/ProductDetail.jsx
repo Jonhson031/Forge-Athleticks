@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styles from "./ProductDetail.module.css";
-import { ALL_PRODUCTS } from "../../assets/data";
 import { cartActions } from "../../redux/store/cartSlice.js";
 
-export default function ProductDetail() {
-  const { id } = useParams();
-  const product = ALL_PRODUCTS.find((p) => p.id === parseInt(id)) || product;
-
+export default function ProductDetail({ product }) {
   const [activeImage, setActiveImage] = useState(0);
   const [activeColor, setActiveColor] = useState(product.colors[0].id);
   const [activeSize, setActiveSize] = useState(null);

@@ -86,7 +86,7 @@ const categories = [
   },
 ];
 
-export default function FaqsPage() {
+export default function Faqs() {
   const dispatch = useDispatch();
   const activeCategory = useSelector((state) => state.ui.faqActiveCategory);
 

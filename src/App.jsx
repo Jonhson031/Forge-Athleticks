@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import RootLayout from "./pages/RootLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import ErrorPage from "./components/Error/Error.jsx";
-import AboutPage from "./components/About/AboutPage.jsx";
-import ProductDetail from "./components/ProductDetail/ProductDetail.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import ProductDetailPage from "./pages/ProductDetailPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
-import FaqsPage from "./components/FAQs/FaqsPage.jsx";
+import FaqsPage from "./pages/FaqsPage.jsx";
 import ProductsPage from "./pages/ProductsPage.jsx";
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: <ProductDetailPage />,
       },
       { path: "/cart", element: <CartPage /> },
       { path: "/faq", element: <FaqsPage /> },
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <HelmetProvider>
+      <RouterProvider router={router} />;
+    </HelmetProvider>
+  );
 }
 
 export default App;

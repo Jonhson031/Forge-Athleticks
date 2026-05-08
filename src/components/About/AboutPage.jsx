@@ -1,33 +1,33 @@
-import Button from '../Button/Button';
-import Eyebrow from '../Eyebrow/Eyebrow';
-import styles from './AboutPage.module.css';
+import Button from "../Button/Button";
+import Eyebrow from "../Eyebrow/Eyebrow";
+import styles from "./AboutPage.module.css";
 
 const stats = [
-  { value: '50K+', label: 'Athletes Worldwide' },
-  { value: '200+', label: 'Products' },
-  { value: '15+', label: 'Countries' },
-  { value: '2019', label: 'Founded' },
+  { value: "50K+", label: "Athletes Worldwide" },
+  { value: "200+", label: "Products" },
+  { value: "15+", label: "Countries" },
+  { value: "2019", label: "Founded" },
 ];
 
 const values = [
   {
     id: 1,
-    title: 'Performance First',
-    body: 'Every stitch, every fabric, every cut is engineered to move with your body — not against it.',
+    title: "Performance First",
+    body: "Every stitch, every fabric, every cut is engineered to move with your body — not against it.",
   },
   {
     id: 2,
-    title: 'Built to Last',
+    title: "Built to Last",
     body: "We don't do disposable. Our gear is made to survive the gym, the track, and everything in between.",
   },
   {
     id: 3,
-    title: 'For Every Athlete',
+    title: "For Every Athlete",
     body: "Whether you're just starting out or chasing a podium, Forge was built with you in mind.",
   },
 ];
 
-export default function AboutUs() {
+export default function About() {
   return (
     <div className={styles.aboutPage}>
       <div className={styles.container}>
@@ -41,13 +41,13 @@ export default function AboutUs() {
             </h1>
             <div className={styles.divider} />
             <p className={styles.body}>
-              Forge Athleticks was born from a simple belief: great gear should empower great
-              performance. We design every product for athletes who demand more — more durability,
-              more comfort, more style.
+              Forge Athleticks was born from a simple belief: great gear should
+              empower great performance. We design every product for athletes
+              who demand more — more durability, more comfort, more style.
             </p>
             <p className={styles.body}>
-              Whether you're in the gym, on the track, or in the streets, Forge is with you every
-              rep, every mile, every moment.
+              Whether you're in the gym, on the track, or in the streets, Forge
+              is with you every rep, every mile, every moment.
             </p>
           </div>
           <div className={styles.imageSide}>
