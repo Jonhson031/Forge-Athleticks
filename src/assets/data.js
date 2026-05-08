@@ -177,6 +177,13 @@ export const ALL_PRODUCTS = [
     gender: "men",
     category: "tops",
     type: "t-shirts",
+    description:
+      "Stay cool and comfortable during your workouts with this lightweight training tee.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     sizes: ["S", "M", "L", "XL"],
     colors: [
       {
@@ -201,6 +208,12 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "shorts",
     sizes: ["S", "M", "L", "XL", "XXL"],
+    description:
+      "Engineered for performance, these shorts feature a flexible fit and durable fabric to keep up with your toughest workouts.",
+    details: [
+      "4-way stretch fabric for maximum mobility",
+      "Built-in compression liner for support",
+    ],
     colors: [
       {
         id: "stone",
@@ -223,6 +236,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "hoodies",
     sizes: ["M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -245,6 +265,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "t-shirts",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "Stay cool and comfortable during your workouts with this lightweight training tee.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -267,6 +294,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "joggers",
     sizes: ["S", "M", "L", "XL", "XXL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -290,6 +324,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "long-sleeves",
     sizes: ["S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -312,6 +353,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "jackets",
     sizes: ["M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -334,6 +382,13 @@ export const ALL_PRODUCTS = [
     category: "accessories",
     type: "gloves",
     sizes: ["S/M", "L/XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -357,6 +412,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "shorts",
     sizes: ["S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -379,6 +441,13 @@ export const ALL_PRODUCTS = [
     category: "accessories",
     type: "caps",
     sizes: ["One Size"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -401,6 +470,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "tank-tops",
     sizes: ["S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -423,6 +499,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "sweatpants",
     sizes: ["M", "L", "XL", "XXL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -447,6 +530,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "sports-bras",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -469,6 +559,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "leggings",
     sizes: ["XS", "S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -492,6 +589,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "tank-tops",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -514,6 +618,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "shorts",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       { id: "charcoal", label: "Charcoal", hex: "#3a3a3a" },
       { id: "stone", label: "Stone", hex: "#9e9e8e" },
@@ -532,6 +643,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "hoodies",
     sizes: ["S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -555,6 +673,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "leggings",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -577,6 +702,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "t-shirts",
     sizes: ["XS", "S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -599,6 +731,13 @@ export const ALL_PRODUCTS = [
     category: "bottoms",
     type: "joggers",
     sizes: ["S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -621,6 +760,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "sports-bras",
     sizes: ["XS", "S", "M", "L"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -643,6 +789,13 @@ export const ALL_PRODUCTS = [
     category: "accessories",
     type: "bags",
     sizes: ["One Size"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -665,6 +818,13 @@ export const ALL_PRODUCTS = [
     category: "accessories",
     type: "hair-ties",
     sizes: ["One Size"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
@@ -688,6 +848,13 @@ export const ALL_PRODUCTS = [
     category: "tops",
     type: "hoodies",
     sizes: ["S", "M", "L", "XL"],
+    description:
+      "This hoodie combines style and performance with its sleek design and moisture-wicking fabric, perfect for warming up or cooling down.",
+    details: [
+      "Breathable, moisture-wicking fabric",
+      "Raglan sleeves for full range of motion",
+      "Reflective logo for low-light visibility",
+    ],
     colors: [
       {
         id: "stone",
