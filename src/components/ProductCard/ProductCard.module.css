@@ -15,7 +15,7 @@
 
 .cardWhite {
     background-color: var(--bg-white);
-    border: 1px solid var(#bdbdbd);
+    border: 1px solid #bdbdbd;
 }
 
 .cardWhite:hover {
