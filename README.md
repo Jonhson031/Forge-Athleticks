@@ -1,16 +1,111 @@
-# React + Vite
+# Forge Athletics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Forge Athletics is a full-stack e-commerce web application for fitness apparel and activewear. The project was built using React, Redux, Node.js, Express, and MongoDB to simulate a modern online shopping experience similar to leading fitness brands. It features product browsing, dynamic filtering, user authentication, cart management, and a custom REST API.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse products by category, gender, and product type
+- Dynamic product filtering and search
+- Product detail pages
+- Shopping cart with persistent storage
+- Promo code support
+- User authentication and account management
+- Responsive design for desktop, tablet, and mobile devices
+- Dynamic routing with React Router
+- SEO-friendly page metadata
+- REST API built from scratch with Express.js
+- Global state management with Redux
 
-## React Compiler
+## 🛠️ Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- React
+- React Router
+- Redux Toolkit
+- JavaScript (ES6+)
+- CSS Modules
+- React Helmet Async
 
-## Expanding the ESLint configuration
+### Backend
+- Node.js
+- Express.js
+- REST API
+- MongoDB
+- Mongoose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Development Tools
+- ESLint
+- Prettier
+- Git
+- GitHub
+
+## 🎯 Key Functionality
+
+### Product Catalog
+Users can browse products by:
+- Gender
+- Product Type
+- Sale Items
+- Categories
+
+### Product Filtering
+Dynamic filtering is synchronized with URL parameters, allowing users to share and revisit filtered product views.
+
+Example:
+
+```text
+/products/men-t-shirts
+/products/women-leggings
+/products/sale
+```
+
+### Shopping Cart
+
+- Add and remove products
+- Update quantities
+- Apply promo codes
+- Cart persistence using Local Storage
+
+### Authentication
+
+- User registration
+- User login
+- Protected user functionality
+- Persistent authentication state
+
+### REST API & Database
+
+The backend was developed from scratch using Express.js and MongoDB. The API provides endpoints for:
+
+- Products
+- Product search
+- Product filtering
+- User accounts
+- Shopping cart operations
+- Authentication
+
+
+## 📱 Responsive Design
+
+The application is fully responsive and optimized for:
+
+- Mobile devices
+- Tablets
+- Laptops
+- Desktop displays
+
+## 📈 Future Improvements
+
+- Wishlist functionality
+- Product reviews and ratings
+- Payment gateway integration
+- Order history
+- Admin dashboard
+- Product inventory management
+- Advanced search and sorting
+
+## 👨‍💻 Author
+
+**Maksym Yaremko**
+
+Created as a full-stack web development project to demonstrate modern frontend and backend development practices using React and Node.js.
