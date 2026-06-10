@@ -1,0 +1,35 @@
+import styles from "./FeaturedProducts.module.css";
+import ProductCard from "../ProductCard/ProductCard.jsx";
+import TitleSection from "../TitleSection/TitleSection.jsx";
+import { ALL_PRODUCTS } from "../../assets/data.js";
+
+export default function FeaturedProducts({ title, eyebrowText, bgWhite = "" }) {
+  return (
+    <section className={`${styles.section} ${bgWhite && styles.sectionWhite}`}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <TitleSection
+            title={title}
+            eyebrowText={eyebrowText}
+            bgWhite={bgWhite}
+          ></TitleSection>
+          <a href="#" className={styles.viewAll}>
+            View All <span>→</span>
+          </a>
+        </div>
+
+        {/* Product grid */}
+        <div className={styles.grid}>
+          {ALL_PRODUCTS.slice(0, 4).map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              bgWhite={bgWhite}
+              colorDots={false}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

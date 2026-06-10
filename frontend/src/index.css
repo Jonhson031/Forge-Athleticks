@@ -167,6 +167,7 @@ body,
   --text-sale: #ff5555;
   --text-link: #999999;
   --text-link-hover: #ffffff;
+  --text-error: #ff5555;
 
   /* Colors - Borders */
   --border: #2a2a2a;
@@ -177,6 +178,8 @@ body,
   --btn-bg: #ffffff;
   --btn-text: #000000;
   --btn-hover-bg: #e0e0e0;
+  --btn-disabled-bg: #2a2a2a;
+  --btn-disabled-text: #555555;
 
   /* Badges */
   --badge-bg: #ffffff;
