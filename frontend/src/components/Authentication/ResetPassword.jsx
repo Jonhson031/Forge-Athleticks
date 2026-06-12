@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigation, useActionData, Form } from "react-router-dom";
-import styles from "./Auth.module.css";
+import styles from "./auth.module.css";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons.jsx";
 
 export default function ResetPassword() {
