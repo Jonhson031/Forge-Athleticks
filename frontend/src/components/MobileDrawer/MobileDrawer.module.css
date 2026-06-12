@@ -13,12 +13,24 @@
     flex-direction: column;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: SlideIn 0.3s ease;
 }
 
 .drawerOpen {
     transform: translateX(0);
 }
 
+@keyframes SlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 .drawerSearch {
     display: flex;
@@ -102,6 +114,7 @@
     flex-direction: column;
     gap: 1.25rem;
     border-top: 0.0625rem solid var(--border);
+    animation: dropIn 0.2s ease;
 }
 
 .drawerSubGroup {
@@ -189,4 +202,16 @@
 
 .drawerFooterLink:hover {
     color: var(--text-primary);
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

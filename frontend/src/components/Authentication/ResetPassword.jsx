@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigation, useActionData, Form } from "react-router-dom";
 import styles from "./auth.module.css";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons.jsx";
+import AuthHeading from "./AuthHeading.jsx";
+import AuthButton from "./AuthButton.jsx";
 
 export default function ResetPassword() {
   const navigation = useNavigation();
@@ -45,16 +47,15 @@ export default function ResetPassword() {
       <div className={styles.container}>
         {!submitted ? (
           <>
-            <div className={styles.heading}>
-              <h1 className={styles.title}>Reset password.</h1>
-              <p className={styles.subtitle}>
-                Choose a new password for your account
-              </p>
-            </div>
+            <AuthHeading
+              title="Reset password."
+              subtitle="Choose a new password for your account."
+            ></AuthHeading>
 
             {actionData?.error && (
               <p style={{ color: "red" }}>{actionData.error}</p>
             )}
+            
             {error && <p className={styles.error}>{error}</p>}
 
             <Form method="post" className={styles.form} noValidate>
@@ -139,34 +140,11 @@ export default function ResetPassword() {
                   <p className={styles.errorText}>Passwords do not match.</p>
                 )}
               </div>
-              <button
-                type="submit"
-                className={styles.submitBtn}
+              <AuthButton
+                text="SET NEW PASSWORD"
                 disabled={isSubmitting || !isValid}
-                className={`${styles.submitBtn} ${isSubmitting || !isValid ? styles.submitBtnDisabled : ""}`}
-              >
-                {isSubmitting ? (
-                  <span className={styles.spinner} />
-                ) : (
-                  "SET NEW PASSWORD"
-                )}
-                {!isSubmitting && (
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                )}
-              </button>
+                isSubmitting={isSubmitting}
+              ></AuthButton>
             </Form>
           </>
         ) : (

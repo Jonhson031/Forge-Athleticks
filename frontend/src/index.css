@@ -221,7 +221,6 @@ body {
 [class*=container] {
   padding: 0 1rem;
   max-width: 83.5rem;
-  /* box-sizing: border-box; */
   margin: 0 auto;
   max-width: 90rem;
 }

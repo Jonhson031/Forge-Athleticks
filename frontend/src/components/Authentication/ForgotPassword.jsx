@@ -1,12 +1,7 @@
 import { useState } from "react";
-import {
-  Link,
-  Form,
-  useActionData,
-  useNavigation,
-  useLocation,
-} from "react-router-dom";
+import { Link, Form, useActionData, useNavigation } from "react-router-dom";
 import styles from "./auth.module.css";
+import AuthHeading from "./AuthHeading";
 
 export default function ForgotPassword() {
   const actionData = useActionData();
@@ -15,28 +10,22 @@ export default function ForgotPassword() {
   const isSubmitting = navigation.state === "submitting";
   const [error, setError] = useState("");
   const submitted = actionData?.data.status === "success";
-  const location = useLocation();
-
-  const resetToken = location.state?.resetToken;
-  console.log(resetToken);
 
   return (
     <div className={styles.page}>
       <div className={styles.container}>
         {!submitted ? (
           <>
-            <div className={styles.heading}>
-              <h1 className={styles.title}>Forgot password?</h1>
-              <p className={styles.subtitle}>
-                Enter your account email and we'll send you a verification code.
-              </p>
-            </div>
+            <AuthHeading
+              title="Forgot password?"
+              subtitle={`Enter your account email and we'll send you a verification code.`}
+            ></AuthHeading>
 
             {actionData?.error && (
-              <p style={{ color: "red" }}>{actionData.error}</p>
+              <p className={styles.error}>{actionData.error}</p>
             )}
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className={styles.error}>{error}</p>}
 
             <Form method="post" className={styles.form} noValidate>
               <div className={styles.fieldGroup}>

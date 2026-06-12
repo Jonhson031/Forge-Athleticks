@@ -38,7 +38,8 @@ const handleCastErrorDB = (err) => {
 // * Handling Duplicate Database Fields
 const handleDuplicateFieldsDB = (err) => {
   const field = Object.keys(err.keyValue)[0];
-  const message = `Duplicate field: ${field}, with the value of ${err.keyValue[field]}. Please use another value!`;
+  // const message = `Duplicate field: ${field}, with the value of ${err.keyValue[field]}. Please use another value!`;
+  const message = "An account with this email already exists";
   return new AppError(message, 400);
 };
 

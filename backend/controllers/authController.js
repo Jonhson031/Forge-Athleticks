@@ -16,8 +16,8 @@ export const protect = catchAsync(async (req, res, next) => {
   ) {
     token = req.headers.authorization.split(" ")[1];
   }
-  if (!token && req.cookies.jwt) {
-    token = req.cookies.jwt;
+  if (!token && req.cookies.authToken) {
+    token = req.cookies.authToken;
   }
 
   if (!token) {
@@ -68,7 +68,7 @@ const createSendToken = function (
   user,
   statusCode,
   res,
-  purpose = "auth",
+  purpose = "authToken",
   expiresIn = process.env.JWT_EXPIRES_IN,
 ) {
   const token = signToken(user._id, purpose, expiresIn);
@@ -87,7 +87,7 @@ const createSendToken = function (
     cookieOptions.sameSite = "lax";
   }
 
-  res.cookie("jwt", token, cookieOptions);
+  res.cookie(purpose, token, cookieOptions);
 
   user.password = undefined;
   user.passwordResetAttempts = undefined;

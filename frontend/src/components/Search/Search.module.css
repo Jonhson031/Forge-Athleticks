@@ -6,9 +6,18 @@
     background-color: var(--bg-dropdown);
     border-top: 0.0625rem solid var(--border);
     border-bottom: 0.0625rem solid var(--border);
-    z-index: 99;
-    animation: dropIn 0.2s ease;
+    z-index: 4;
+    animation: dropIn 0.3s ease;
 }
+
+.searchBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    animation: dropIn 0.3s ease;
+}
+
 
 .searchOverlayInner {
     max-width: 90rem;
@@ -120,6 +129,38 @@
     color: var(--text-primary);
     border-color: var(--text-primary);
     background-color: #1a1a1a;
+}
+
+.searchQuickTag:nth-child(1) {
+    animation: dropIn 0.15s ease 0.1s both;
+}
+
+.searchQuickTag:nth-child(2) {
+    animation: dropIn 0.15s ease 0.1s both;
+}
+
+.searchQuickTag:nth-child(3) {
+    animation: dropIn 0.15s ease 0.1s both;
+}
+
+.searchQuickTag:nth-child(4) {
+    animation: dropIn 0.15s ease 0.1s both;
+}
+
+.searchQuickTag:nth-child(5) {
+    animation: dropIn 0.15s ease 0.1s both;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 48rem) {
