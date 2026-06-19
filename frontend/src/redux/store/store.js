@@ -4,12 +4,14 @@ import { saveCart } from "../../utils/localStorage.js";
 import { uiSlice } from "./uiSlice.js";
 import { filtersSlice } from "./filtersSlice.js";
 import { cartSlice } from "./cartSlice.js";
+import { authSlice } from "./authSlice.js";
 
 export const store = configureStore({
   reducer: {
     ui: uiSlice.reducer,
     filters: filtersSlice.reducer,
     cart: cartSlice.reducer,
+    auth: authSlice.reducer,
   },
 });
 
